@@ -12,3 +12,6 @@ Folder includes scripts with installing node modules.
 Initial script removes nvm packages and yarn lock file, which include the exact dependency versions for the  project together with checksums for each package. 
 This reduces time of the build
 
+## 03 - Docker
+
+Created Docker container with Nginx and custom home page (see index.html)
