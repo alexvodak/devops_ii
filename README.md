@@ -15,3 +15,22 @@ This reduces time of the build
 ## 03 - Docker
 
 Created Docker container with Nginx and custom home page (see index.html)
+
+## 04 - Docker compose
+
+
+### 04 - 01 Python Client/Server
+
+Includes docker compose and small Python scripts
+
+### 04 - 02 MS SQL Server and ASP NET Core API
+
+Located in different repository. Includes compose of MS SQL Server with API consuming data from it.
+App is extended with EF Core migration with seeded data
+
+## 05 - Azure
+
+## 06 - Terraform
+
+Includes 3 tasks completed in 1 build
+Actual variables data is removed for security reasons
