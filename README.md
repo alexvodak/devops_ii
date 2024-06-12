@@ -30,7 +30,35 @@ App is extended with EF Core migration with seeded data
 
 ## 05 - Azure
 
+sudo ufw allow 80/tcp comment 'accept HTTP connections'
+sudo ufw allow 443/tcp comment 'accept HTTPS connections'
+sudo mysql -e 'CREATE DATABASE 'bloodbank' DEFAULT CHARACTER SET utf8'
+sudo mysql bloodbank
+source /home/vm1-admin/sources/Blood-Bank-Management-System/sql/bloodbank.sql
+sudo cp -r /home/vm1-admin/sources/Blood-Bank-Management-System/* .
+
 ## 06 - Terraform
 
 Includes 3 tasks completed in 1 build
 Actual variables data is removed for security reasons
+
+## 07 - Hosting
+
+Created hosting of Wordpress site and 
+
+## 08 GitHub Actions
+
+1. Events that trigger workflows: https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows
+2. Expressions: https://docs.github.com/en/actions/learn-github-actions/expressions
+3. Contexts: https://docs.github.com/en/actions/learn-github-actions/contexts
+4. Variables: https://docs.github.com/en/actions/learn-github-actions/variables
+5. Using jobs in a workflow: https://docs.github.com/en/actions/using-jobs/using-jobs-in-a-workflow
+
+## 09 CI/CD Jenkins
+
+Jenkins 
+
+1. Jenkins - https://www.jenkins.io/
+2. Setup Jenkins server - https://aws.amazon.com/ru/getting-started/hands-on/setup-jenkins-build-server/
+3. Use Jenkins in Azure - https://docs.microsoft.com/ru-ru/azure/developer/jenkins/
+4. Jenkins free eBook  https://riptutorial.com/Download/jenkins.pdf
