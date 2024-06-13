@@ -53,6 +53,7 @@ Created hosting of Wordpress site and
 3. Contexts: https://docs.github.com/en/actions/learn-github-actions/contexts
 4. Variables: https://docs.github.com/en/actions/learn-github-actions/variables
 5. Using jobs in a workflow: https://docs.github.com/en/actions/using-jobs/using-jobs-in-a-workflow
+6. Run GitHub locally: https://github.com/nektos/act
 
 ## 09 CI/CD Jenkins
 
