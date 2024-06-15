@@ -1,0 +1,55 @@
+pipeline {
+    agent any
+    
+    environment {
+        REMOTE_USER = credentials('REMOTE_USER')
+        REMOTE_HOST = credentials('REMOTE_HOST')
+    }
+
+    stages {
+        stage('Install httpd on Remote Host') {
+            steps {
+                script {
+                    node {
+                        sshagent (['SSH_KEY']) {
+                            sh """
+                            ssh -o StrictHostKeyChecking=no $REMOTE_USER@$REMOTE_HOST << EOF
+                            sudo apt-get update
+                            sudo apt-get install -y apache2
+                            """
+                        }
+                    }
+                }
+            }
+        }
+        stage('Check Logs for 4xx and 5xx Errors') {
+            steps {
+                script {
+                    node {
+                        sshagent (['SSH_KEY']) {
+                            sh """
+                            ssh -o StrictHostKeyChecking=no $REMOTE_USER@$REMOTE_HOST << EOF
+                            sudo cat /var/log/apache2/access.log | grep -E 'HTTP.+[45][0-9]{2} '
+                            """
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    post {
+        always {
+            script {
+                node {
+                    sshagent (['SSH_KEY']) {
+                        sh """
+                        ssh $REMOTE_USER@$REMOTE_HOST << EOF
+                        sudo systemctl stop apache2
+                        """
+                    }
+                }
+            }
+        }
+    }
+}
